@@ -81,7 +81,7 @@
     dest: "{{ artifacts_dir }}/k0s-kubeconfig.yml"
     flat: yes
     validate_checksum: no
-  become: yes
+  become: true
 
 - name: "print kubeconfig command"
   debug:
