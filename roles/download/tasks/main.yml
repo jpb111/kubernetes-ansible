@@ -16,6 +16,9 @@
     dest: "{{ distros_path.path }}"
   # workaround for bug in get_url, https://github.com/ansible/ansible/issues/64016 . Valid for Ansible 2.9, leads to
   # file re-download at every run
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0775
   when: item == "x86_64" and not (distros_path.path + "/k0s-"+ k0s_version + "-amd64") is exists
   with_items: "{{ ansible_facts.architecture }}"
 
