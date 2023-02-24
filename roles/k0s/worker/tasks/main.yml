@@ -6,7 +6,7 @@
     dest: "{{ k0s_config_dir }}/worker-token"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
-    mode: 0600
+    mode: 0660
 
 - name: Create k0s worker service with install command
   register: install_worker_cmd
