@@ -67,7 +67,7 @@
     dest: ~{{ ansible_user }}/k0s-kubeconfig.yml
     remote_src: yes
     owner: "{{ ansible_user }}"
-    mode: 0664
+    mode: 0644
 
 - name: Set controller IP in kubeconfig
   replace:
@@ -81,7 +81,7 @@
     dest: "{{ artifacts_dir }}/k0s-kubeconfig.yml"
     flat: yes
     validate_checksum: no
-  become: true
+  become: no
 
 - name: "print kubeconfig command"
   debug:

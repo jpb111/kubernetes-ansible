@@ -5,7 +5,7 @@
   file:
     path: "{{ item }}"
     state: directory
-    mode: 0775
+    mode: 0755
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
   loop:
@@ -19,7 +19,7 @@
     dest: "{{ k0s_config_dir }}/k0s.yaml"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
-    mode: 0660
+    mode: 0600
   when: k0s_use_custom_config
 
 - name: Generate default k0s config file
@@ -34,5 +34,5 @@
         content: "{{ default_k0s_config.stdout }}"
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
-        mode: 0660
+        mode: 0600
   when: not k0s_use_custom_config
